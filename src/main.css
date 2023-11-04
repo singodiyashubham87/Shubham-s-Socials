@@ -1,0 +1,24 @@
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+ @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=DM+Sans:opsz@9..40&family=Poppins&display=swap');
+
+/* Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: #242424;
+  color: white;
+}
+
+*::selection{
+  background: #000;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
