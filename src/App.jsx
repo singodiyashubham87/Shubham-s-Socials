@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "./components/Button.jsx";
 import profile from "../src/assets/images/circleDP.png";
 
@@ -15,28 +15,68 @@ import { BiLogoGmail } from "react-icons/bi";
 import { SiDevpost, SiPeerlist } from "react-icons/si";
 
 function App() {
-
   const [bgPosition, setPosition] = useState("left");
   const [bgColor, setBgColor] = useState("white");
+  const [bgDivStyle, setBgDivStyle] = useState("");
 
-  const toggleMode = (pos,color) => {
+  const toggleMode = (pos, color) => {
     setPosition(pos);
     setBgColor(color);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width >= 450) {
+        addBgDiv();
+      } else {
+        removeBgDiv();
+      }
+    };
+
+    // Attach event listener on component mount
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  // Add Background Div when width reaches 400px or more
+  const addBgDiv = () => {
+    setBgDivStyle(
+      "border-2 bg-[#242424] border-white rounded-[0.625rem] backdrop-blur-[40px] shadow-md shadow-[#736464]"
+    );
+  };
+
+  // remove Background Div when width fall below 400px
+  const removeBgDiv = () => {
+    setBgDivStyle("");
+  };
+
   return (
     <>
-      <div className="parentContainer w-[100vw] h-[100vh] relative text-inter flex justify-center items-center border-2 border-white-700">
-
+      <div className="parentContainer w-[100vw] min-h-[100vh] relative text-inter flex justify-center items-center border-2 border-white-700">
         {/* Theme  */}
-        <div className="absolute top-[2rem] right-[2rem] bg-[#D9D9D9CC] px-[0.5rem] py-[0.5rem] flex justify-center items-center rounded-[2rem] gap-[1rem] border-2 border-gray-700">
-          <div className={`bg-${bgColor} absolute ${bgPosition}-0 h-full w-[50%] rounded-[2rem]`}></div>
-          <FaMoon className="text-black cursor-pointer z-[100]" onClick={()=>toggleMode("left","white")}/>
-          <FaSun className="cursor-pointer z-[100]" onClick={()=>toggleMode("right","black")} />
+        <div className="absolute top-[1rem] right-[1rem] bg-[#D9D9D9CC] px-[0.5rem] py-[0.5rem] flex justify-center items-center rounded-[2rem] gap-[1rem] border-2 border-gray-700 msm:top-[1.5rem] msm:right-[1.5rem] md:top-[2rem] md:right-[2rem]">
+          <div
+            className={`bg-${bgColor} absolute ${bgPosition}-0 h-full w-[50%] rounded-[2rem]`}
+          ></div>
+          <FaMoon
+            className="text-black cursor-pointer z-[100]"
+            onClick={() => toggleMode("left", "white")}
+          />
+          <FaSun
+            className="cursor-pointer z-[100]"
+            onClick={() => toggleMode("right", "black")}
+          />
         </div>
 
         {/* Main Contents  */}
-        <div className="content bg-[#242424] flex flex-col justify-center items-center gap-[2rem] p-[1rem] border-2 border-white rounded-[0.625rem] backdrop-blur-[40px] shadow-md shadow-[#736464]">
+        <div
+          className={`content flex flex-col justify-center items-center gap-[2rem]  p-[1rem] gsm:py-[2rem]  ${bgDivStyle}`}
+        >
           <div className="intro flex flex-col justify-center items-center">
             <img
               src={profile}
@@ -44,10 +84,10 @@ function App() {
               className="border-2 border-[#00000099] w-[7rem] rounded-[50%] mb-[0.5rem]"
             />
             <div className="name flex flex-col justify-center items-center">
-              <h1 className="text-[3rem] font-semibold leading-[1.2]">
+              <h1 className="text-[2rem] font-semibold leading-[1.2] gsm:text-[3rem]">
                 Shubham Singodiya
               </h1>
-              <h2 className="text-[2rem] text-[#FFFFFF99] mb-[0.5rem]">
+              <h2 className="text-[1.5rem] text-[#FFFFFF99] mb-[0.5rem] gsm:text-[2rem]">
                 Full Stack Developer
               </h2>
             </div>
@@ -133,7 +173,7 @@ function App() {
           </div>
 
           <div className="credit">
-            <h3 className="text-[#FFFFFFCC] text-[1.5rem]">{`Made with <3 by Shubham Singodiya`}</h3>
+            <h3 className="text-[#FFFFFFCC] text-[1.5rem]">{`Radhe-Radhe!`}</h3>
           </div>
         </div>
       </div>
