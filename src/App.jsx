@@ -36,7 +36,7 @@ function App() {
         </div>
 
         {/* Main Contents  */}
-        <div className="content flex flex-col justify-center items-center gap-[2rem] p-[1rem]">
+        <div className="content bg-[#242424] flex flex-col justify-center items-center gap-[2rem] p-[1rem] border-2 border-white rounded-[0.625rem] backdrop-blur-[40px] shadow-md shadow-[#736464]">
           <div className="intro flex flex-col justify-center items-center">
             <img
               src={profile}
