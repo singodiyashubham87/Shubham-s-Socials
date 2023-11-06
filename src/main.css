@@ -1,24 +1,58 @@
- @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
- @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=DM+Sans:opsz@9..40&family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=DM+Sans:opsz@9..40&family=Poppins&display=swap");
 
 /* Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    /* light color variables  */
+    --body-bg: #bebebec7;
+    --box-bg: #b9b9b9ce;
+    --box-shadow: #4d4d4d;
+    --font-muted: #47474799;
+    --social-media-icons: #3a3a3acc;
+    --professional-media-icons: #e4e4e499;
+    --text-selection: #fff;
+    --theme-circle: #000;
+  }
+}
+
+[data-theme="dark"] {
+  --body-bg: #1A1A1A;
+  --box-bg: #2b2b2b;
+  --box-shadow: #7e7e7e;
+  --font-muted: #ffffff99;
+  --social-media-icons: #d9d9d9cc;
+  --professional-media-icons: #00000099;
+  --text-selection: #000;
+  --theme-circle: #fff;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  background-color: #141414;
-  color: white;
+  color: #fff;
 }
 
-*::selection{
-  background: #000;
+*::selection {
+  background: var(--text-selection);
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+@media screen and (min-width: 450px) {
+  .content {
+    background-color: var(--box-bg);
+    border: 2px solid var(--theme-circle);
+    border-radius: 0.625rem;
+    box-shadow: 0 3px 10px var(--box-shadow);
+    backdrop-filter: blur(40px);
+  }
 }

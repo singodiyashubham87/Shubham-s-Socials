@@ -3,6 +3,17 @@ export default {
   content: ["./src/**/*.{js,jsx}"],
   theme: {
     extend: {
+      colors: {
+        'bg-primary': 'var(--body-bg)',
+        'bg-secondary': 'var(--box-bg)',
+        'box-shadow': 'var(--box-shadow)',
+        'box-border': 'var(--box-border)',
+        'text-muted': 'var(--font-muted)',
+        'social-icons': 'var(--social-media-icons)',
+        'professional-icons': 'var(--professional-media-icons)',
+        'theme-circle': 'var(--theme-circle)',
+        'text-selection': 'var(--text-selection)',
+      },
       fontFamily: {
         inter: `"Inter","sans-serif"`,
       },
