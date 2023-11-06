@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      <div className="parentContainer bg-bg-primary w-[100vw] min-h-[100vh] relative text-inter flex justify-center items-center border-2 border-white-700">
+      <div className="parentContainer bg-bg-primary w-[100vw] min-h-[100vh] relative text-inter flex justify-center items-center border-2 border-theme-circle">
         {/* Theme  */}
         <div className="absolute top-[1rem] right-[1rem] bg-social-icons px-[0.5rem] py-[0.5rem] flex justify-center items-center rounded-[2rem] gap-[1rem] border-2 border-social-icons  msm:top-[1.5rem] msm:right-[1.5rem] md:top-[2rem] md:right-[2rem]">
           <div
