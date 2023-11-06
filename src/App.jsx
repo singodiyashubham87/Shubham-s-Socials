@@ -23,7 +23,7 @@ function App() {
         {/* Theme  */}
         <div className="absolute top-[1rem] right-[1rem] bg-social-icons px-[0.5rem] py-[0.5rem] flex justify-center items-center rounded-[2rem] gap-[1rem] border-2 border-social-icons  msm:top-[1.5rem] msm:right-[1.5rem] md:top-[2rem] md:right-[2rem]">
           <div
-            className={`bg-theme-circle absolute ${bgPosition}-0 h-full w-[50%] rounded-[2rem]`}
+            className={bgPosition==="left" ? `bg-theme-circle absolute left-0 h-full w-[50%] rounded-[2rem]`:`bg-theme-circle absolute right-0 h-full w-[50%] rounded-[2rem]`}
           ></div>
           <FaMoon
             className="text-black cursor-pointer z-[100]"
