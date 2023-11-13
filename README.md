@@ -1,2 +1,4 @@
 # Shubham-s-Socials
-Repository for my social account links
+This Repository is for my social account links website.
+
+
