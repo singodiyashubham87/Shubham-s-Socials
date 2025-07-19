@@ -50,7 +50,7 @@ function App() {
                 Shubham Singodiya
               </h1>
               <h2 className="text-[1.5rem] text-text-muted mb-[0.5rem] gsm:text-[2rem]">
-                Full Stack Developer
+                Software Engineer
               </h2>
             </div>
             <div className="socialLinks flex justify-center items-center gap-[2rem]">
